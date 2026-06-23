@@ -1,6 +1,5 @@
 package com.practice.Array.TrappingRainWater;
 
-import java.util.Arrays;
 import java.util.Scanner;
 
 public class TrappingRainWater {
@@ -13,29 +12,34 @@ public class TrappingRainWater {
 			arr[i] = scan.nextInt();
 		}
 		scan.close();
-		rainWaterTrapped(arr);
+		System.out.println(rainWaterTrapped(arr));
 	}
 
-	public static void rainWaterTrapped(int[] arr) {
-		int[] leftMax = new int[arr.length];
-		int[] rightMax = new int[arr.length];
-		leftMax[0] = arr[0];
-		for (int i = 1; i < arr.length; i++) {
-			leftMax[i] = Math.max(leftMax[i - 1], arr[i]);
-		}
-		rightMax[arr.length - 1] = arr[arr.length - 1];
-		for (int i = arr.length - 2; i >= 0; i--) {
-			rightMax[i] = Math.max(rightMax[i + 1], arr[i]);
-		}
-
-		System.out.println(Arrays.toString(leftMax));
-		System.out.println(Arrays.toString(rightMax));
-
+	public static int rainWaterTrapped(int[] arr) {
+		int leftMax = 0;
+		int rightMax = 0;
 		int trappedWater = 0;
-		for (int i = 0; i <= arr.length - 1; i++) {
-			trappedWater += Math.min(rightMax[i], leftMax[i]) - arr[i];
+		int left = 0;
+		int right = arr.length - 1;
+
+		while (left < right) {
+			if (arr[left] < arr[right]) {
+				if (arr[left] >= leftMax) {
+					leftMax = arr[left];
+				} else {
+					trappedWater += leftMax - arr[left];
+				}
+				left++;
+			} else {
+				if (rightMax <= arr[right]) {
+					rightMax = arr[right];
+				} else {
+					trappedWater += rightMax - arr[right];
+				}
+				right--;
+			}
 		}
-		System.out.println(trappedWater);
+		return trappedWater;
 	}
 
 }
