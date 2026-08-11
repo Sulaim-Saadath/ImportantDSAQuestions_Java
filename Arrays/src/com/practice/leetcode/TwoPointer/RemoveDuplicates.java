@@ -16,9 +16,10 @@ public class RemoveDuplicates {
 		scan.close();
 		int res = removeDuplicates(arr);
 		System.out.println("Unique Elements in the array " + Arrays.toString(arr) + " is " + res);
+		
 	}
 	public static int removeDuplicates(int[] nums) {
-		if (nums.length - 1 <= 0) {
+		if (nums.length == 0) {
 			return 0;
 		}
 		int unique = 1;
@@ -34,6 +35,15 @@ public class RemoveDuplicates {
 			nums[j] = nums[k];
 			k++;
 		}
+		System.out.print("[");
+		for(int i = 0;i < unique;i++) {
+			if (i != unique - 1) {
+				System.out.print(nums[i] + ", ");
+			} else {
+				System.out.print(nums[i]);
+			}
+		}
+		System.out.println("]");
 		return unique;
 	}
 }
