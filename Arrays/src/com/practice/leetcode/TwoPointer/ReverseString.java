@@ -1,4 +1,4 @@
-package com.practice.leetcode;
+package com.practice.leetcode.TwoPointer;
 
 import java.util.Scanner;
 
