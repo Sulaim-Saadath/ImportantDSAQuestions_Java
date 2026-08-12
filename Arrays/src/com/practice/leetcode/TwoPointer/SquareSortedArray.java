@@ -64,8 +64,7 @@ public class SquareSortedArray {
 			}
 		}
 		
-//		Main Logic Starts here
-		
+//		Main Logic Starts here.
 //		Reverse the negative array
 		int left = 0;
 		int right = negativeArray.length - 1;

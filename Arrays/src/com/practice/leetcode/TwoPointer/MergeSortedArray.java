@@ -6,7 +6,7 @@ import java.util.Scanner;
 public class MergeSortedArray {
 	public static void main(String[] args) {
 		Scanner scan = new Scanner(System.in);
-		System.out.println("Enter the size of even sorted array: ");
+		System.out.println("Enter the size of even sorted array ");
 		int[] evenArray = new int[scan.nextInt()];
 		System.out.println("Enter the size of odd sorted array: ");
 		int[] oddArray = new int[scan.nextInt()];
