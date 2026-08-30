@@ -35,7 +35,6 @@ public class IntersectionOfTwoArrays {
 		for(int n:arr2) {
 			set2.add(n);
 		}
-		
 		System.out.println(set1);
 		System.out.println(set2);
 		if(set1.size() > set2.size()) {
