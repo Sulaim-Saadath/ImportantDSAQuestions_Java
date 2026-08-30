@@ -29,10 +29,14 @@ public class SubArraySum {
 		high++;
 		maxSum = sum;
 		while(high <= arr.length - 1) {
-			sum = sum - arr[low - 1] + arr[high];
-			maxSum = Math.max(maxSum, sum);
+			sum = sum - arr[low - 1];
 			low++;
+			
+			if(high == arr.length - 1) 
+				break;
+			sum = sum + arr[high + 1];
 			high++;
+			maxSum = Math.max(maxSum, sum);
 		}
 		return maxSum;
 	}
