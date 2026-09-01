@@ -19,23 +19,18 @@ public class MinimunSizeSubArray {
 	}
 	
 	public static int minSubArrayLen(int[] arr, int target) {
-		int result = Integer.MAX_VALUE;
-		int sum = 0;
 		int low = 0;
-		int high = 0;
-		while(high <= arr.length - 1) {
+		int res = Integer.MAX_VALUE;
+		int sum = 0;
+		for(int high = 0;high <= arr.length - 1;high++) {
 			sum = sum + arr[high];
 			while(sum >= target) {
-				int len = (high - low) + 1;
-				result = Math.min(result, len);
+				int len = high - low + 1;
+				res = Math.min(len, res);
 				sum = sum - arr[low];
 				low++;
 			}
-			high++;
 		}
-		if(result == Integer.MAX_VALUE) {
-			return 0;
-		}
-		return result;
+		return res;
 	}
 }
