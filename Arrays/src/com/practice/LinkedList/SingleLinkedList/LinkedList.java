@@ -14,4 +14,14 @@ public class LinkedList {
 		}
 		temp.next = node;
 	}
+	
+	public void addNodeAtFront(int data) {
+		Node node = new Node(data);
+		if(head == null) {
+			head = node;
+			return;
+		}
+		node.next = head;
+		head = node;
+	}
 }
