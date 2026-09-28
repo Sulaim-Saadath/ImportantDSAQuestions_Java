@@ -52,4 +52,20 @@ public class LinkedList {
 			temp = temp.next;
 		}
 	}
+	
+	public void deleteNodeAtEnd(Node head) {
+		Node temp = head;
+		while(temp.next.next != null) {
+			temp = temp.next;
+		}
+		temp.next = null;
+	}
+	
+	public Node deleteNodeAtFirst(Node head) {
+		if(head == null) {
+			return head;
+		}
+		head = head.next;
+		return head;
+	}
 }
